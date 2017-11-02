@@ -1,0 +1,38 @@
+{
+  "name": "Asset",
+  "plural": "Assets",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "dateAcquired": {
+      "type": "date",
+      "required": true
+    },
+    "serialNumber": {
+      "type": "string"
+    },
+    "purchasePrice": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "employee": {
+      "type": "belongsTo",
+      "model": "Employee",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": false
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
