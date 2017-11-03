@@ -1,4 +1,5 @@
 'use strict';
+const errorHelper = require('../../server/helpers/error-helpers');
 
 module.exports = function(Employee) {
   Employee.getTotalAssetCostForEmployee = (id, cb) => {
@@ -18,8 +19,8 @@ module.exports = function(Employee) {
           total += assets[i].purchasePrice;
         }
         return cb(null, total);
-      }).catch((err) => {if (err) throw err;});
-    }).catch((err) => {if (err) throw err;});
+      }).catch(errorHelper.logAndThrow);
+    }).catch(errorHelper.logAndThrow);
   };
 
   Employee.remoteMethod('getTotalAssetCostForEmployee', {
